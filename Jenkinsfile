@@ -12,7 +12,7 @@ pipeline {
             steps {
                 echo 'Running Unit and Integration tests...'
                 // Use JUnit for unit tests
-                // e.g., junit 'target/surefire-reports/*.xml'
+                // e.g.., junit 'target/surefire-reports/*.xml'
                 // Use Selenium for integration tests
             }
         }
