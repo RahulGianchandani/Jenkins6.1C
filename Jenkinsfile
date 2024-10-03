@@ -51,17 +51,20 @@ pipeline {
             }
         }
     }
-    post {
+  post {
         success {
-            mail bcc: '', 
-                 body: ''' The build was successful!
-Check the details at ${env.BUILD_URL}.''', 
-                 cc: '', 
-                 from: 'your-email@example.com',  // Replace with your email
-                 replyTo: '', 
-                 subject: 'Jenkins Build Notification - Success', 
-                 to: 'jkat.rk@gmail.com'
-                 attachLog: true
+            // Send an email with logs when the build is successful
+            emailext(
+                subject: "Jenkins Build Success: ${env.JOB_NAME} #${env.BUILD_NUMBER}",
+                body: "Build was succesful"
+                Build #${env.BUILD_NUMBER} of job ${env.JOB_NAME} has succeeded.
+              
+                View details at: ${env.BUILD_URL}
+                """,
+                recipientProviders: [[$class: 'DevelopersRecipientProvider']],
+                attachLog: true // Attaches the build log
+                to: 'jkat.rk@gmail.com'
+            )
         }
         failure {
             mail bcc: '', 
