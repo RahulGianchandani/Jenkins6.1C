@@ -34,7 +34,7 @@ pipeline {
             steps {
                 echo 'Deploying to Staging...'
                 // Deploy to an AWS EC2 instance or another staging server
-                // e.g., using SSH to deploy
+                // e.g., using SSH to deployy
             }
         }
         stage('Integration Tests on Staging') {
