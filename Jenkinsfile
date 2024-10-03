@@ -61,6 +61,7 @@ Check the details at ${env.BUILD_URL}.''',
                  replyTo: '', 
                  subject: 'Jenkins Build Notification - Success', 
                  to: 'jkat.rk@gmail.com'
+                 attachLog: true
         }
         failure {
             mail bcc: '', 
