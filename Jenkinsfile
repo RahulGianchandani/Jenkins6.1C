@@ -57,7 +57,7 @@ pipeline {
             emailext(
                 subject: "Jenkins Build Success: ${env.JOB_NAME} #${env.BUILD_NUMBER}",
                 body: "Build was succesful"
-                Build #${env.BUILD_NUMBER} of job ${env.JOB_NAME} has succeeded.
+                {env.BUILD_NUMBER} of job ${env.JOB_NAME} has succeeded.
               
                 View details at: ${env.BUILD_URL}
                 """,
